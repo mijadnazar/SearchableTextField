@@ -13,6 +13,7 @@
 		D39AF7B52086372800B721E6 /* searchableTextField.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D39AF7B32086372800B721E6 /* searchableTextField.xcdatamodeld */; };
 		D39AF7B72086372800B721E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D39AF7B62086372800B721E6 /* Assets.xcassets */; };
 		D39AF7BA2086372900B721E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D39AF7B82086372900B721E6 /* LaunchScreen.storyboard */; };
+		D39AF7C220863DA900B721E6 /* MISearchableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39AF7C120863DA900B721E6 /* MISearchableTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		D39AF7B62086372800B721E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D39AF7B92086372900B721E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D39AF7BB2086372900B721E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D39AF7C120863DA900B721E6 /* MISearchableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MISearchableTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				D39AF7B82086372900B721E6 /* LaunchScreen.storyboard */,
 				D39AF7BB2086372900B721E6 /* Info.plist */,
 				D39AF7B32086372800B721E6 /* searchableTextField.xcdatamodeld */,
+				D39AF7C120863DA900B721E6 /* MISearchableTextField.swift */,
 			);
 			path = searchableTextField;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 				D39AF7B52086372800B721E6 /* searchableTextField.xcdatamodeld in Sources */,
 				D39AF7AF2086372800B721E6 /* ViewController.swift in Sources */,
 				D39AF7AD2086372800B721E6 /* AppDelegate.swift in Sources */,
+				D39AF7C220863DA900B721E6 /* MISearchableTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +285,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4544W8D2X8;
 				INFOPLIST_FILE = searchableTextField/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mehdi.searchableTextField;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -296,6 +301,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4544W8D2X8;
 				INFOPLIST_FILE = searchableTextField/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mehdi.searchableTextField;
 				PRODUCT_NAME = "$(TARGET_NAME)";
