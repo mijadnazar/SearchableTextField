@@ -14,6 +14,8 @@
 		D39AF7B72086372800B721E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D39AF7B62086372800B721E6 /* Assets.xcassets */; };
 		D39AF7BA2086372900B721E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D39AF7B82086372900B721E6 /* LaunchScreen.storyboard */; };
 		D39AF7C220863DA900B721E6 /* MISearchableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39AF7C120863DA900B721E6 /* MISearchableTextField.swift */; };
+		D3B092B820877CD00038C738 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B092B720877CD00038C738 /* Cell.swift */; };
+		D3B092BA208788B60038C738 /* UIViewController+HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B092B9208788B60038C738 /* UIViewController+HideKeyboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		D39AF7B92086372900B721E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D39AF7BB2086372900B721E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D39AF7C120863DA900B721E6 /* MISearchableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MISearchableTextField.swift; sourceTree = "<group>"; };
+		D3B092B720877CD00038C738 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		D3B092B9208788B60038C738 /* UIViewController+HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+HideKeyboard.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 				D39AF7BB2086372900B721E6 /* Info.plist */,
 				D39AF7B32086372800B721E6 /* searchableTextField.xcdatamodeld */,
 				D39AF7C120863DA900B721E6 /* MISearchableTextField.swift */,
+				D3B092B720877CD00038C738 /* Cell.swift */,
+				D3B092B9208788B60038C738 /* UIViewController+HideKeyboard.swift */,
 			);
 			path = searchableTextField;
 			sourceTree = "<group>";
@@ -144,6 +150,8 @@
 			files = (
 				D39AF7B52086372800B721E6 /* searchableTextField.xcdatamodeld in Sources */,
 				D39AF7AF2086372800B721E6 /* ViewController.swift in Sources */,
+				D3B092B820877CD00038C738 /* Cell.swift in Sources */,
+				D3B092BA208788B60038C738 /* UIViewController+HideKeyboard.swift in Sources */,
 				D39AF7AD2086372800B721E6 /* AppDelegate.swift in Sources */,
 				D39AF7C220863DA900B721E6 /* MISearchableTextField.swift in Sources */,
 			);
