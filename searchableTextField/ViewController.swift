@@ -8,9 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var textField: UITextField!
     var datasource: [String]?
 
     override func viewDidLoad() {
@@ -20,6 +21,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.dismissKeyboard()
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        self.textField.delegate = self
 
         self.datasource = ["Iran", "Turkey", "Australia", "United States", "Canada", "France", "United Kingdom", "Germany"]
 

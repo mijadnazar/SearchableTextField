@@ -68,6 +68,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="Z2I-tW-fhs" id="RCk-Rh-Uh6"/>
+                        <outlet property="textField" destination="VKU-aj-LAG" id="Zzm-QJ-FDm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
