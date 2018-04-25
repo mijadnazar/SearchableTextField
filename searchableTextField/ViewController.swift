@@ -53,5 +53,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        <#code#>
+    }
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        <#code#>
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        <#code#>
+    }
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        <#code#>
+    }
 }
 
