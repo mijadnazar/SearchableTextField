@@ -12,6 +12,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textField: UITextField!
+    let originalDatasource = ["Iran", "Turkey", "Australia", "United States", "Canada", "France", "United Kingdom", "Germany"]
     var datasource: [String]?
 
     override func viewDidLoad() {
@@ -23,7 +24,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.tableView.delegate = self
         self.textField.delegate = self
 
-        self.datasource = ["Iran", "Turkey", "Australia", "United States", "Canada", "France", "United Kingdom", "Germany"]
+        self.datasource = originalDatasource
 
         self.tableView.reloadData()
     }
@@ -32,6 +33,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -54,19 +56,47 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        <#code#>
+        return true
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        <#code#>
+
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        <#code#>
+        return true
     }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        <#code#>
+        let currentText = textField.text?.lowercased()
+        var newText = ""
+        if string.isEmpty {
+            // User pressed the backspace button
+            newText = (currentText?.substring(to: (currentText?.index(before: (currentText?.endIndex)!))!))!
+        }else {
+            newText = currentText! + string.lowercased()
+        }
+
+        self.searchFor(newText)
+
+        return true
+    }
+
+    func searchFor(_ text:String) {
+        var resultItems = [String]()
+
+        if text.isEmpty{
+            resultItems = self.originalDatasource
+        }else {
+            for item in self.originalDatasource {
+                if item.lowercased().contains(text) {
+                    resultItems.append(item)
+                }
+            }
+        }
+
+        self.datasource = resultItems
+        self.tableView.reloadData()
     }
 }
 
