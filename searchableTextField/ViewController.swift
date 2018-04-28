@@ -12,8 +12,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var tableViewEqualWidthConstraint: NSLayoutConstraint!
+
     let originalDatasource = ["Iran", "Turkey", "Australia", "United States", "Canada", "France", "United Kingdom", "Germany"]
     var datasource: [String]?
+
+    var tableViewOriginalSize : CGSize?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +33,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.tableView.reloadData()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableViewOriginalSize = CGSize(width: self.tableView.frame.size.width, height: self.tableView.frame.size.height)
+
+//        self.tableViewEqualWidthConstraint.multiplier = 0
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        self.tableView.frame = CGRect.zero
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -56,6 +69,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseIn, animations: {
+            self.tableView.frame.origin = CGPoint(x: self.textField.frame.origin.x, y: self.textField.frame.origin.y + self.textField.frame.size.height)
+            self.tableView.frame.size.width = (self.tableViewOriginalSize?.width)!
+            self.tableView.frame.size.height = (self.tableViewOriginalSize?.height)!
+        }, completion: nil)
         return true
     }
 
