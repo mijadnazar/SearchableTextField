@@ -23,7 +23,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-        self.hideKeyboardWhenTappedAround()
+//        self.hideKeyboardWhenTappedAround()
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.textField.delegate = self
@@ -32,6 +32,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         self.tableView.layer.borderColor = UIColor.blue.cgColor
         self.tableView.layer.borderWidth = 1
+        self.addTapGestureToTableView()
 
         self.tableView.reloadData()
     }
@@ -43,8 +44,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     override func viewDidAppear(_ animated: Bool) {
-
-        self.tableView.bounds.size.height = 0
+        self.tableView.frame.origin.y -= self.tableView.frame.size.height
+        self.tableView.isHidden = true
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -76,7 +77,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseInOut, animations: {
 //            self.tableView.frame.origin = CGPoint(x: self.textField.frame.origin.x, y: self.textField.frame.origin.y + self.textField.frame.size.height)
 //            self.tableView.frame.size.width = (self.tableViewOriginalSize?.width)!
-            self.tableView.frame.size.height = (self.tableViewOriginalSize?.height)!
+//            self.tableView.frame.size.height = (self.tableViewOriginalSize?.height)!
+            self.tableView.frame.origin.y += self.tableView.frame.size.height
+            self.tableView.isHidden = false
         }, completion: nil)
         return true
     }
@@ -119,6 +122,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         self.datasource = resultItems
         self.tableView.reloadData()
+    }
+
+    func addTapGestureToTableView() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(hideTableView))
+        self.view.addGestureRecognizer(tap)
+    }
+
+    @objc func hideTableView() {
+        self.view.endEditing(true)
+        UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseOut, animations: {
+            self.tableView.frame.origin.y -= self.tableView.frame.size.height
+        }, completion: nil)
     }
 }
 
