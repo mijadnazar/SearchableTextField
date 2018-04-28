@@ -23,12 +23,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-        self.dismissKeyboard()
+        self.hideKeyboardWhenTappedAround()
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.textField.delegate = self
 
         self.datasource = originalDatasource
+
+        self.tableView.layer.borderColor = UIColor.blue.cgColor
+        self.tableView.layer.borderWidth = 1
 
         self.tableView.reloadData()
     }
@@ -40,7 +43,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        self.tableView.frame = CGRect.zero
+
+        self.tableView.bounds.size.height = 0
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -69,9 +73,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseIn, animations: {
-            self.tableView.frame.origin = CGPoint(x: self.textField.frame.origin.x, y: self.textField.frame.origin.y + self.textField.frame.size.height)
-            self.tableView.frame.size.width = (self.tableViewOriginalSize?.width)!
+        UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseInOut, animations: {
+//            self.tableView.frame.origin = CGPoint(x: self.textField.frame.origin.x, y: self.textField.frame.origin.y + self.textField.frame.size.height)
+//            self.tableView.frame.size.width = (self.tableViewOriginalSize?.width)!
             self.tableView.frame.size.height = (self.tableViewOriginalSize?.height)!
         }, completion: nil)
         return true
