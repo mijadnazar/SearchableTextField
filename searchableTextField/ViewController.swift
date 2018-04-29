@@ -39,13 +39,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     override func viewWillAppear(_ animated: Bool) {
         self.tableViewOriginalSize = CGSize(width: self.tableView.frame.size.width, height: self.tableView.frame.size.height)
-
-//        self.tableViewEqualWidthConstraint.multiplier = 0
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        self.tableView.frame.origin.y -= self.tableView.frame.size.height
-        self.tableView.isHidden = true
+        self.hideTableView()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -74,13 +71,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseInOut, animations: {
-//            self.tableView.frame.origin = CGPoint(x: self.textField.frame.origin.x, y: self.textField.frame.origin.y + self.textField.frame.size.height)
-//            self.tableView.frame.size.width = (self.tableViewOriginalSize?.width)!
-//            self.tableView.frame.size.height = (self.tableViewOriginalSize?.height)!
-            self.tableView.frame.origin.y += self.tableView.frame.size.height
-            self.tableView.isHidden = false
-        }, completion: nil)
+        self.showTableView()
+
         return true
     }
 
@@ -131,9 +123,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @objc func hideTableView() {
         self.view.endEditing(true)
-        UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseOut, animations: {
-            self.tableView.frame.origin.y -= self.tableView.frame.size.height
-        }, completion: nil)
+        if self.tableView.frame.origin.y > self.textField.frame.origin.y {
+            UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseOut, animations: {
+                self.tableView.frame.origin.y = self.textField.frame.origin.y + self.textField.frame.size.height - self.tableView.frame.size.height
+            }, completion: { (true) in
+                self.tableView.isHidden = true
+            })
+        }
+    }
+
+    func showTableView() {
+        if self.tableView.frame.origin.y < self.textField.frame.origin.y {
+            UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseInOut, animations: {
+                self.tableView.frame.origin.y = self.textField.frame.origin.y + self.textField.frame.size.height
+                self.tableView.isHidden = false
+            }, completion: nil)
+        }
     }
 }
 
