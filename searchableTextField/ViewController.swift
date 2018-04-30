@@ -42,6 +42,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        print("viewDidAppear Called")
         self.hideTableView()
     }
     override func didReceiveMemoryWarning() {
@@ -122,8 +123,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     @objc func hideTableView() {
+        print("hideTableView Called")
+        print(self.tableView.frame.origin.y - self.textField.frame.origin.y)
+        print("TableView frame is : ")
+        print(self.tableView.frame)
+        print("TextField frame is : ")
+        print(self.textField.frame)
+
         self.view.endEditing(true)
         if self.tableView.frame.origin.y > self.textField.frame.origin.y {
+            print(self.tableView.frame.origin.y - self.textField.frame.origin.y)
             UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseOut, animations: {
                 self.tableView.frame.origin.y = self.textField.frame.origin.y + self.textField.frame.size.height - self.tableView.frame.size.height
             }, completion: { (true) in
@@ -133,7 +142,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     func showTableView() {
+        print("showTableView Called")
+        print(self.tableView.frame.origin.y - self.textField.frame.origin.y)
+        print("TableView frame is : ")
+        print(self.tableView.frame)
+        print("TextField frame is : ")
+        print(self.textField.frame)
         if self.tableView.frame.origin.y < self.textField.frame.origin.y {
+
             UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseInOut, animations: {
                 self.tableView.frame.origin.y = self.textField.frame.origin.y + self.textField.frame.size.height
                 self.tableView.isHidden = false
